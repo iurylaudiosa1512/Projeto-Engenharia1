@@ -1,51 +1,31 @@
-ETL COVID Brasil - Projeto de Monitoramento
+# ETL COVID Brasil - Airflow + Docker + Grafana
 
-Projeto para coletar, armazenar e visualizar dados de COVID-19 no Brasil utilizando Docker, Airflow, PostgreSQL e Grafana.
+Este projeto realiza a coleta, armazenamento e visualização de dados de COVID-19 no Brasil utilizando **Airflow**, **PostgreSQL**, **Docker** e **Grafana**.  
 
-Tecnologias
+Os dados são extraídos da API pública: [COVID-19 Brazil API](https://covid19-brazil-api.vercel.app/).
 
-Docker
+---
 
-Airflow
+## Funcionalidades
 
-PostgreSQL
+- **Extração (Extract):** Busca os dados atualizados da API.
+- **Transformação/Preparação (Transform/Load):** Armazena os dados no PostgreSQL.
+- **Carga (Load):** Cria tabela `covid_data` e popula com informações sobre casos e mortes.
+- **Visualização:** Permite criar gráficos de evolução de casos recentes no Grafana.
 
-Grafana
+---
 
-Python
+## Tecnologias utilizadas
 
-Estrutura
+- [Docker](https://www.docker.com/) – Para containerização do projeto.
+- [Docker Compose](https://docs.docker.com/compose/) – Para orquestração dos containers.
+- [Apache Airflow](https://airflow.apache.org/) – Para orquestração do pipeline ETL.
+- [PostgreSQL](https://www.postgresql.org/) – Banco de dados relacional.
+- [Grafana](https://grafana.com/) – Para dashboards e visualização de dados.
+- [Python](https://www.python.org/) – Para scripts de ETL.
+- [Requests](https://pypi.org/project/requests/) – Para acessar a API.
 
-dags/ → DAGs do Airflow
-
-sql/ → Scripts de inicialização do PostgreSQL
-
-docker-compose.yml → Configuração dos containers
-
-Como Rodar
-
-Subir os containers:
-
-docker-compose up -d
-
-
-Acessar o Airflow: http://localhost:8080
-
-Usuário: admin
-
-Senha: admin
-
-Acessar o Grafana: http://localhost:3000
-
-Usuário: admin
-
-Senha: admin
-
-Criar dashboards no Grafana conectando ao PostgreSQL e consultar a evolução dos casos.
-
-Objetivo
-
-Visualizar a evolução diária de casos de COVID-19 por estado no Brasil.
+---
 
 
 <img width="1607" height="641" alt="image" src="https://github.com/user-attachments/assets/3b4ca9fd-6cc4-4f0f-82ff-0360e0b04d67" />
